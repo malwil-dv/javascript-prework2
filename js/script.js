@@ -9,11 +9,13 @@ function playGame(playerInput) {
             return 'papier';
         } else if(argMoveId == 3) {
             return 'nożyce';
+        } else if(argMoveId == 4) {
+            return 'szkło';
         }
         printMessage('Nie znam ruchu o id ' + argMoveId + '.');
         return 'nieznany ruch';
     }
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    let randomNumber = Math.floor(Math.random() * 4 + 1);
 
     console.log('Wylosowana liczba to: ' + randomNumber);
 
@@ -42,6 +44,19 @@ function playGame(playerInput) {
         } else if (argComputerMove == 'papier' && argPlayerMove == 'kamień') {
         printMessage('Ja wygrywam!');
         } else if (argComputerMove == 'nożyce' && argPlayerMove == 'papier') {
+        printMessage('Ja wygrywam!');
+
+        } else if (argComputerMove == 'szkło' && argPlayerMove == 'papier') {
+        printMessage('Ja wygrywam!');
+        } else if (argComputerMove == 'szkło' && argPlayerMove == 'kamień') {
+        printMessage('Ty wygrywasz!');
+        } else if (argComputerMove == 'szkło' && argPlayerMove == 'nożyce') {
+        printMessage('Ja wygrywam!');
+        } else if (argComputerMove == 'papier' && argPlayerMove == 'szkło') {
+        printMessage('Ty wygrywasz!');
+        } else if (argComputerMove == 'nożyce' && argPlayerMove == 'szkło') {
+        printMessage('Ty wygrywasz!');
+        } else if (argComputerMove == 'kamień' && argPlayerMove == 'szkło') {
         printMessage('Ja wygrywam!');
         } else if (argComputerMove == argPlayerMove) {
         printMessage('Remis');
@@ -75,3 +90,14 @@ function nozyceClicked(){
 let nozyceButton = document.getElementById('nozyce');
 
 nozyceButton.addEventListener('click', nozyceClicked);
+
+
+
+function szkloClicked(){
+    playGame(4);
+}
+
+let szkloButton = document.getElementById('szklo');
+
+szkloButton.addEventListener('click', szkloClicked);
+
