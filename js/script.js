@@ -2,8 +2,7 @@
     const playGame = function(playerInput) {
         clearMessages();
 
-        const getMoveName = function(argMoveId, ktoTo) {
-            console.log('Przekazany argMoveId: ' + ktoTo + ':' + argMoveId);
+        const getMoveName = function(argMoveId) {
             if(argMoveId == 1) {
                 return 'kamień';
             } else if(argMoveId == 2) {
@@ -18,22 +17,15 @@
         }
         const randomNumber = Math.floor(Math.random() * 4 + 1);
 
-        console.log('Wylosowana liczba to: ' + randomNumber);
-
         const computerMove = getMoveName(randomNumber, 'komputer');
 
-        console.log('Ruch komputera: ' + computerMove);
-
         printMessage('Mój ruch to: ' + computerMove);
-
-        console.log('Gracz wpisał: ' + playerInput);
 
         const playerMove = getMoveName(playerInput, 'gracz');
 
         printMessage('Twój ruch to: ' + playerMove);
 
         const displayResult = function(argComputerMove, argPlayerMove) {
-            console.log('moves: ', argComputerMove, ', ', argPlayerMove);
             if(argComputerMove == 'kamień' && argPlayerMove == 'papier') {
             printMessage('Ty wygrywasz!');
             } else if (argComputerMove == 'papier' && argPlayerMove == 'nożyce') {
